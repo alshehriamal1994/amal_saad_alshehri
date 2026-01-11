@@ -42,15 +42,6 @@
     footer{ padding:36px 24px; color:var(--muted); text-align:center }
     .row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center }
     .row a.button{ display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid #ffffff22; background:#ffffff0a }
-    
-    /* Center the map widget container */
-    .map-container {
-      margin-top: 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
   </style>
 </head>
 <body>
@@ -75,11 +66,13 @@
     </section>
 
     <section id="visitor-map" aria-label="Visitor Statistics">
-      <div class="card map-container">
+      <div class="card" style="margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
         <h2 style="margin:0; font-size: 1.2rem; color: var(--muted);">Visitor Reach</h2>
-        <div style="max-width: 100%; overflow: hidden;">
+        
+        <div style="width: 100%; min-height: 250px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
           <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=0e1633&w=a&t=tt&d=x7bqs5cs3ApWwRp4jrsvxGGmhNX5U1Kl2sJRmlsXrBs&co=0b4975&cmo=3acc3a&cmn=ff5353&ct=cdd4d9'></script>
         </div>
+        
       </div>
     </section>
 
