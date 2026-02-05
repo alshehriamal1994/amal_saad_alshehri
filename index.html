@@ -36,12 +36,18 @@
     .hero{ padding:72px 24px 32px }
     .card{ background:linear-gradient(180deg, color-mix(in srgb, var(--card), transparent 10%), var(--card)); border:1px solid #ffffff12; border-radius:20px; padding:24px; box-shadow:0 10px 25px #00000033 }
     h1{ font-size: clamp(32px, 4vw, 56px); line-height:1.1; margin:0 0 10px }
+    h3{ margin: 0 0 8px; font-size: 1.25rem; line-height: 1.3; }
     p.lead{ color:var(--muted); font-size:18px }
     .tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:14px }
     .tag{ background:#ffffff12; border:1px solid #ffffff1a; padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted) }
+    .tag.highlight { background: var(--brand); color: #fff; border: none; font-weight: 600; }
     footer{ padding:36px 24px; color:var(--muted); text-align:center }
     .row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center }
-    .row a.button{ display:inline-block; padding:10px 14px; border-radius:12px; border:1px solid #ffffff22; background:#ffffff0a }
+    .row.left { justify-content: flex-start; }
+    .row a.button{ display:inline-block; padding:8px 14px; border-radius:12px; border:1px solid #ffffff22; background:#ffffff0a; font-size: 0.9rem; transition: background 0.2s; }
+    .row a.button:hover { background: #ffffff1a; text-decoration: none; }
+    .pub-meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
+    section { margin-bottom: 48px; }
   </style>
 </head>
 <body>
@@ -65,8 +71,27 @@
       </div>
     </section>
 
+    <section id="research" aria-label="Selected Research">
+      <h2 style="font-size: 1.2rem; color: var(--muted); margin-bottom: 16px;">Latest Publication</h2>
+      <div class="card">
+        <div>
+          <span class="tag highlight" style="margin-bottom: 12px; display: inline-block;">2026 • Open Access</span>
+          <h3><a href="https://doi.org/10.1007/s10506-025-09501-6">Neural reranking for UK statutory retrieval: Provision-level evaluation and an open distilled model</a></h3>
+          <div class="pub-meta">
+            Published in <i>Artificial Intelligence and Law</i> (Springer)
+          </div>
+          <p style="margin-bottom: 20px;">
+            We introduce <b>UK-STATUTECORPUS</b> and <b>Distilled-Voyage-ModernBERT</b> to improve statutory retrieval. By distilling proprietary legal rerankers into open models, we achieve high-performance provision-level retrieval without relying on closed APIs.
+          </p>
+          <div class="row left">
+            <a class="button" href="https://doi.org/10.1007/s10506-025-09501-6">📄 Read Paper</a>
+            <a class="button" href="https://github.com/alshehriamal1994/uk-statute-retrieval">💻 Code & Datasets</a>
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="visitor-map" aria-label="Visitor Statistics">
-      <div class="card" style="margin-top: 32px; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+      <div class="card" style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
         <h2 style="margin:0; font-size: 1.2rem; color: var(--muted);">Visitor Reach</h2>
         
         <div style="width: 100%; min-height: 250px; display: flex; justify-content: center; overflow: hidden; border-radius: 12px;">
@@ -77,7 +102,7 @@
     </section>
 
     <section id="contact" aria-labelledby="contact-h">
-      <h2 id="contact-h">Contact</h2>
+      <h2 id="contact-h" style="font-size: 1.2rem; color: var(--muted); margin-bottom: 16px;">Contact</h2>
       <div class="card" style="text-align:center">
         <p class="lead">Email: <a href="mailto:amal.alshehri@durham.ac.uk">amal.alshehri@durham.ac.uk</a></p>
         <div class="row">
