@@ -3,536 +3,589 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amal Alshehri</title>
+
+  <title>Amal Saad Alshehri</title>
   <meta
     name="description"
-    content="Amal Alshehri — PhD candidate at Durham University working on Legal AI and NLP."
+    content="Amal Saad Alshehri — PhD candidate in Artificial Intelligence at Durham University, working on Legal AI, NLP, legal information retrieval, reranking, and legal reasoning."
   />
-  <meta property="og:title" content="Amal Alshehri" />
+
+  <meta property="og:title" content="Amal Saad Alshehri" />
   <meta
     property="og:description"
-    content="PhD candidate at Durham University working on Legal AI and NLP."
+    content="PhD candidate in Artificial Intelligence at Durham University working on Legal AI and NLP."
   />
   <meta property="og:type" content="website" />
-  <meta name="theme-color" content="#0f172a" />
+  <meta name="theme-color" content="#f7f3ee" />
+
   <link
     rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230f172a'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='50' fill='white' font-family='Arial'%3EA%3C/text%3E%3C/svg%3E"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23201a17'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-size='48' fill='%23f7f3ee' font-family='Georgia'%3EA%3C/text%3E%3C/svg%3E"
   />
 
   <style>
     :root {
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --line: rgba(15, 23, 42, 0.10);
-      --brand: #1d4ed8;
-      --brand-soft: rgba(29, 78, 216, 0.08);
-      --shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
-      --max: 920px;
-      --radius: 20px;
+      --bg: #f7f3ee;
+      --paper: #fffdf9;
+      --ink: #201a17;
+      --muted: #665f59;
+      --soft: #8a8178;
+      --line: rgba(32, 26, 23, 0.14);
+      --accent: #7a3f32;
+      --accent-soft: #efe3dc;
+      --max: 1040px;
+      --radius: 18px;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0b1120;
-        --surface: #0f172a;
-        --text: #e5eefc;
-        --muted: #9aa8c4;
-        --line: rgba(255, 255, 255, 0.10);
-        --brand: #8ab4ff;
-        --brand-soft: rgba(138, 180, 255, 0.12);
-        --shadow: none;
-      }
+    * {
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.7;
-      letter-spacing: -0.01em;
+      font-size: 16px;
     }
 
     a {
-      color: inherit;
-      text-decoration: none;
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--ink);
     }
 
     .wrap {
-      width: min(calc(100% - 32px), var(--max));
+      width: min(calc(100% - 36px), var(--max));
       margin: 0 auto;
     }
 
     header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 243, 238, 0.95);
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: color-mix(in srgb, var(--bg), transparent 8%);
+      z-index: 10;
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
     }
 
     .nav {
-      min-height: 72px;
+      min-height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand {
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.01em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--text);
-    }
-
-    main {
-      padding: 56px 0 72px;
-    }
-
-    section {
-      margin-bottom: 44px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--brand);
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.15rem, 4vw, 3.5rem);
-      line-height: 1.03;
-      letter-spacing: -0.045em;
-      font-weight: 700;
-    }
-
-    .subhead {
-      margin: 18px 0 0;
-      max-width: 62ch;
-      color: var(--muted);
-      font-size: 1.04rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 24px;
-    }
-
-    .section-title {
-      margin: 0 0 14px;
-      font-size: 1.15rem;
+      color: var(--ink);
+      text-decoration: none;
       font-weight: 700;
       letter-spacing: -0.02em;
     }
 
-    .card p {
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: flex-end;
+      font-size: 0.94rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--ink);
+    }
+
+    main {
+      padding: 54px 0 72px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 46px;
+      align-items: start;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      color: var(--ink);
+      line-height: 1.18;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+    }
+
+    .role {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.18rem;
+      max-width: 760px;
+    }
+
+    .bio {
+      margin: 28px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+      font-size: 0.98rem;
+    }
+
+    .photo-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px;
+    }
+
+    .photo-card img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .photo-caption {
+      margin: 10px 4px 0;
+      color: var(--soft);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    section {
+      padding: 42px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.72rem;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+      letter-spacing: -0.015em;
+      margin-bottom: 6px;
+    }
+
+    p {
       margin: 0;
       color: var(--muted);
     }
 
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
+    .content {
+      display: grid;
+      gap: 24px;
     }
 
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 0 16px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: transparent;
-      font-weight: 600;
-      transition: transform 0.18s ease, border-color 0.18s ease;
-    }
-
-    .button:hover {
-      transform: translateY(-1px);
-      border-color: color-mix(in srgb, var(--brand), var(--line) 70%);
-    }
-
-    .results-intro {
-      margin-bottom: 18px;
+    .plain-list {
+      margin: 0;
+      padding-left: 20px;
       color: var(--muted);
     }
 
-    .result-list {
-      display: grid;
-      gap: 0;
+    .plain-list li {
+      margin-bottom: 8px;
     }
 
-    .result-row {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 16px;
-      padding: 14px 0;
-      border-top: 1px solid var(--line);
+    .item {
+      padding-bottom: 22px;
+      border-bottom: 1px solid rgba(32, 26, 23, 0.10);
     }
 
-    .result-row:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-
-    .result-row strong {
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .result-row span {
-      color: var(--muted);
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 28px;
-      padding: 0 10px;
-      border-radius: 999px;
-      background: var(--brand-soft);
-      color: var(--brand);
-      font-size: 0.78rem;
-      font-weight: 700;
-      margin-left: 10px;
-      vertical-align: middle;
-    }
-
-    .publication-title {
-      margin: 0 0 12px;
-      font-size: 1.28rem;
-      line-height: 1.32;
-      letter-spacing: -0.025em;
+    .item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
     }
 
     .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
+      color: var(--soft);
+      font-size: 0.92rem;
+      margin-top: 4px;
     }
 
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 32px;
-      padding: 0 11px;
-      border-radius: 999px;
-      background: var(--brand-soft);
-      color: var(--brand);
-      font-size: 0.82rem;
+    .note {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      font-size: 0.96rem;
+    }
+
+    .results-table th,
+    .results-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .results-table th {
+      color: var(--ink);
+      background: #f1ebe4;
       font-weight: 700;
     }
 
-    .talk-card {
-      display: grid;
-      gap: 14px;
+    .results-table tr:last-child td {
+      border-bottom: 0;
     }
 
-    .talk-meta {
+    .results-table td {
       color: var(--muted);
-      font-size: 0.95rem;
     }
 
-    .map-wrap {
-      width: 100%;
-      min-height: 280px;
-      overflow: hidden;
-      border-radius: 16px;
+    .highlight {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .small-note {
+      background: var(--accent-soft);
+      border: 1px solid rgba(122, 63, 50, 0.18);
+      color: #5d3b32;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-size: 0.94rem;
+    }
+
+    .contact-box {
+      background: var(--paper);
       border: 1px solid var(--line);
-      background: var(--surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .contact-list {
+      border-radius: var(--radius);
+      padding: 22px;
       display: grid;
       gap: 12px;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 18px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .contact-link span:last-child {
-      color: var(--muted);
-      font-size: 0.92rem;
     }
 
     footer {
-      padding: 8px 0 36px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      padding: 28px 0 42px;
+      color: var(--soft);
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 720px) {
-      .wrap {
-        width: min(calc(100% - 20px), var(--max));
-      }
-
+    @media (max-width: 820px) {
       .nav {
-        min-height: 64px;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
       }
 
-      .nav-links {
-        gap: 14px;
+      nav {
+        justify-content: flex-start;
       }
 
-      .card {
-        padding: 20px;
-      }
-
-      .result-row {
+      .intro,
+      .section-grid {
         grid-template-columns: 1fr;
-        gap: 6px;
+      }
+
+      .photo-card {
+        max-width: 360px;
       }
 
       main {
-        padding-top: 34px;
+        padding-top: 36px;
+      }
+
+      .results-table {
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#top">Amal Alshehri</a>
-      <nav class="nav-links" aria-label="Primary navigation">
+      <a class="brand" href="#top">Amal Saad Alshehri</a>
+
+      <nav aria-label="Primary navigation">
         <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
         <a href="#coliee">COLIEE 2026</a>
-        <a href="#publication">Publication</a>
-        <a href="#presentation">Presentation</a>
-        <a href="#visits">Visits</a>
+        <a href="#presentations">Presentations</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="top" class="wrap">
-    <section id="about" aria-label="About">
-      <div class="eyebrow">PhD Candidate · Durham University</div>
-      <h1>Legal AI and NLP</h1>
-      <p class="subhead">
-        I work on retrieval, reranking, and evaluation for legal text, with a focus on
-        statutory, case law, and contract corpora.
-      </p>
+    <section id="about" class="intro" aria-label="About">
+      <div>
+        <div class="kicker">PhD Candidate · Artificial Intelligence</div>
+
+        <h1>Amal Saad Alshehri</h1>
+
+        <p class="role">
+          PhD candidate in the Department of Computer Science at Durham University,
+          working on Legal AI, natural language processing, legal information retrieval,
+          reranking, and legal reasoning.
+        </p>
+
+        <p class="bio">
+          My research focuses on building and evaluating AI systems for legal text.
+          I am particularly interested in retrieval and reranking for statutes and case law,
+          retrieval-augmented prompting, and the careful evaluation of large language models
+          in legal information processing tasks.
+        </p>
+
+        <div class="profile-links">
+          <a href="mailto:amal.alshehri@durham.ac.uk">Email</a>
+          <a href="https://www.durham.ac.uk/staff/amal-alshehri/" target="_blank" rel="noopener noreferrer">Durham profile</a>
+          <a href="https://orcid.org/0000-0001-6903-6720" target="_blank" rel="me noopener noreferrer">ORCID</a>
+          <a href="https://www.linkedin.com/in/amalsaad100/" target="_blank" rel="me noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/alshehriamal1994" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+
+      <figure class="photo-card">
+        <img src="ME.jpeg" alt="Amal Saad Alshehri" />
+        <figcaption class="photo-caption">
+          Legal AI researcher working on retrieval, reranking, and evaluation for legal text.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="research" aria-label="Research interests">
+      <div class="section-grid">
+        <h2>Research interests</h2>
+
+        <div class="content">
+          <p>
+            My work sits at the intersection of artificial intelligence, natural language processing,
+            and legal information systems. I study how models retrieve legal materials, rank evidence,
+            and make entailment decisions under the constraints of legal language.
+          </p>
+
+          <ul class="plain-list">
+            <li>Legal information retrieval for statutes, case law, and legal paragraphs.</li>
+            <li>Neural and feature-based reranking for long legal documents.</li>
+            <li>Retrieval-augmented prompting and LLM evaluation for legal reasoning.</li>
+            <li>Open-weight models, reproducible legal NLP systems, and benchmark-based evaluation.</li>
+            <li>Trustworthy Legal AI, including grounding, error analysis, and transparent reporting.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" aria-label="Publications">
+      <div class="section-grid">
+        <h2>Publications</h2>
+
+        <div class="content">
+          <article class="item">
+            <h3>
+              <a
+                href="https://link.springer.com/article/10.1007/s10506-025-09501-6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Neural reranking for UK statutory retrieval: Provision-level evaluation and an open distilled model
+              </a>
+            </h3>
+            <div class="meta">Artificial Intelligence and Law, 2026</div>
+            <p class="note">
+              This work introduces UK-STATUTECORPUS and Distilled-Voyage-ModernBERT
+              for provision-level statutory retrieval.
+            </p>
+            <div class="profile-links">
+              <a
+                href="https://link.springer.com/article/10.1007/s10506-025-09501-6"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Paper
+              </a>
+              <a
+                href="https://github.com/alshehriamal1994/uk-statute-retrieval"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Code and data
+              </a>
+            </div>
+          </article>
+
+          <article class="item">
+            <h3>
+              Cross-Architecture LLM Ensembles, Feature-Based Reranking and Retrieval-Augmented Prompting
+              for Legal Information Processing
+            </h3>
+            <div class="meta">COLIEE 2026 workshop paper</div>
+            <p class="note">
+              A unified empirical study of Team DU systems across legal case retrieval,
+              case entailment, statute retrieval and entailment, and legal judgment prediction.
+            </p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section id="coliee" aria-label="COLIEE 2026 results">
-      <h2 class="section-title">COLIEE 2026</h2>
-      <div class="card">
-        <p class="results-intro">
-          Selected results from my submissions to the 2026 Competition on Legal Information Extraction and Entailment.
-        </p>
+      <div class="section-grid">
+        <h2>COLIEE 2026</h2>
 
-        <div class="result-list">
-          <div class="result-row">
-            <strong>Task 1</strong>
-            <span>
-              du3: <strong>11/54 submissions</strong> (F1 0.3141) ·
-              du2: <strong>12/54</strong> (F1 0.3136) ·
-              du1: <strong>14/54</strong> (F1 0.3035)
-            </span>
+        <div class="content">
+          <p>
+            Team DU participated in all five COLIEE 2026 tasks. The strongest official result
+            was in Task 4, where DU1 and DU2 achieved first place in statute entailment.
+          </p>
+
+          <table class="results-table" aria-label="COLIEE 2026 results summary">
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Result</th>
+                <th>How it should be described</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td><span class="highlight">Task 1</span></td>
+                <td>F1 = 0.314; rank 11/54 submissions</td>
+                <td>Official result for legal case retrieval.</td>
+              </tr>
+
+              <tr>
+                <td><span class="highlight">Task 2</span></td>
+                <td>Official F1 = 0.343; post-competition F1 = 0.555</td>
+                <td>The improved F1 should be described as post-competition analysis, not an official submission.</td>
+              </tr>
+
+              <tr>
+                <td><span class="highlight">Task 3</span></td>
+                <td>Official accuracy = 79.3%; post-competition accuracy = 91.5%</td>
+                <td>The 91.5% result should be described as post-competition analysis.</td>
+              </tr>
+
+              <tr>
+                <td><span class="highlight">Task 4</span></td>
+                <td>Accuracy = 96.3%; rank 1/33 submissions</td>
+                <td>Official first-place result in statute entailment.</td>
+              </tr>
+
+              <tr>
+                <td><span class="highlight">Pilot Task</span></td>
+                <td>TP accuracy = 73.1%; RE F1 = 68.2%</td>
+                <td>Unofficial submission; should not be described as an official leaderboard win.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="small-note">
+            I separate official results, unofficial results, and post-competition analysis to keep the website
+            accurate, professional, and credible.
+          </p>
+
+          <div class="profile-links">
+            <a href="https://coliee.org/COLIEE2026/results" target="_blank" rel="noopener noreferrer">COLIEE results overview</a>
+            <a href="https://coliee.org/COLIEE2026/results/task4" target="_blank" rel="noopener noreferrer">Task 4 results</a>
           </div>
-
-          <div class="result-row">
-            <strong>Task 2</strong>
-            <span>
-              task2_du3: <strong>22/35 submissions</strong> (F1 0.3427) ·
-              task2_du2: <strong>23/35</strong> (F1 0.3377) ·
-              task2_du1: <strong>26/35</strong> (F1 0.3239)
-            </span>
-          </div>
-
-          <div class="result-row">
-            <strong>Task 3</strong>
-            <span>
-              DU2: <strong>14/22 submissions</strong> (accuracy 0.7927) ·
-              DU: <strong>18/22</strong> (0.7683) ·
-              DU1: <strong>19/22</strong> (0.7561)
-            </span>
-          </div>
-
-          <div class="result-row">
-            <strong>Task 4</strong>
-            <span>
-              DU1: <strong>1/33 submissions</strong> (accuracy 0.9634) ·
-              DU2: <strong>1/33</strong> (0.9634) ·
-              DU3: <strong>6/33</strong> (0.9390)
-            </span>
-          </div>
-
-          <div class="result-row">
-            <strong>Pilot task</strong>
-            <span>
-              DU1: Tort Prediction <strong>73.1%</strong> ·
-              Rationale Extraction <strong>68.2%</strong>
-              <span class="tag">Unofficial submission</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="links">
-          <a class="button" href="https://coliee.org/COLIEE2026/results" target="_blank" rel="noopener noreferrer">Results overview</a>
-          <a class="button" href="https://coliee.org/COLIEE2026/results/task4" target="_blank" rel="noopener noreferrer">Task 4 results</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="publication" aria-label="Latest publication">
-      <h2 class="section-title">Latest publication</h2>
-      <div class="card">
-        <h3 class="publication-title">
-          <a
-            href="https://link.springer.com/article/10.1007/s10506-025-09501-6"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Neural reranking for UK statutory retrieval: Provision-level evaluation and an open distilled model
-          </a>
-        </h3>
-
-        <p>
-          This work introduces UK-STATUTECORPUS and Distilled-Voyage-ModernBERT for
-          provision-level statutory retrieval, showing how strong legal rerankers can be
-          distilled into open models without relying on closed APIs.
-        </p>
-
-        <div class="meta">
-          <span class="chip">Artificial Intelligence and Law</span>
-          <span class="chip">2026</span>
-          <span class="chip">Open access</span>
-        </div>
-
-        <div class="links">
-          <a class="button" href="https://link.springer.com/article/10.1007/s10506-025-09501-6" target="_blank" rel="noopener noreferrer">Read paper</a>
-          <a class="button" href="https://github.com/alshehriamal1994/uk-statute-retrieval" target="_blank" rel="noopener noreferrer">Code and data</a>
         </div>
       </div>
     </section>
 
-    <section id="presentation" aria-label="Presentation">
-      <h2 class="section-title">Presentation</h2>
-      <div class="card talk-card">
-        <h3 class="publication-title" style="margin-bottom: 0;">
-          UKAIS 2026
-        </h3>
-        <p class="talk-meta">
-          Presented at the UK Academy for Information Systems conference,
-          The University of Sheffield, April 2026.
-        </p>
-        <p>
-          Enhancing Trust in Legal AI: Optimising Span-Level Retrieval Architectures on LegalBench-RAG.
-        </p>
+    <section id="presentations" aria-label="Presentations">
+      <div class="section-grid">
+        <h2>Presentations</h2>
 
-        <div class="links">
-          <a class="button" href="ukais-sheffield-2026.pdf" target="_blank" rel="noopener noreferrer">View slides</a>
-          <a class="button" href="ukais-sheffield-2026.pdf" download>Download slides</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="visits" aria-label="Visitor map">
-      <h2 class="section-title">Visitor reach</h2>
-      <div class="card">
-        <div class="map-wrap">
-          <script
-            type="text/javascript"
-            id="mapmyvisitors"
-            src="https://mapmyvisitors.com/map.js?cl=0e1633&w=a&t=tt&d=x7bqs5cs3ApWwRp4jrsvxGGmhNX5U1Kl2sJRmlsXrBs&co=0b4975&cmo=3acc3a&cmn=ff5353&ct=cdd4d9">
-          </script>
+        <div class="content">
+          <article class="item">
+            <h3>UKAIS 2026</h3>
+            <div class="meta">University of Sheffield, April 2026</div>
+            <p class="note">
+              Presented “Enhancing Trust in Legal AI: Optimising Span-Level Retrieval
+              Architectures on LegalBench-RAG.”
+            </p>
+            <div class="profile-links">
+              <a href="ukais-sheffield-2026.pdf" target="_blank" rel="noopener noreferrer">View slides</a>
+              <a href="ukais-sheffield-2026.pdf" download>Download slides</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="contact" aria-label="Contact">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-list">
-        <a class="contact-link" href="mailto:amal.alshehri@durham.ac.uk">
-          <span>Email</span>
-          <span>amal.alshehri@durham.ac.uk</span>
-        </a>
+      <div class="section-grid">
+        <h2>Contact</h2>
 
-        <a
-          class="contact-link"
-          href="https://www.durham.ac.uk/staff/amal-alshehri/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>Durham profile</span>
-          <span>University page</span>
-        </a>
+        <div class="contact-box">
+          <p>
+            I am happy to connect with researchers and collaborators interested in Legal AI,
+            NLP, information retrieval, reranking, and trustworthy AI systems for legal text.
+          </p>
 
-        <a
-          class="contact-link"
-          href="https://orcid.org/0000-0001-6903-6720"
-          target="_blank"
-          rel="me noopener noreferrer"
-        >
-          <span>ORCID</span>
-          <span>Research identifier</span>
-        </a>
-
-        <a
-          class="contact-link"
-          href="https://www.linkedin.com/in/amalsaad100/"
-          target="_blank"
-          rel="me noopener noreferrer"
-        >
-          <span>LinkedIn</span>
-          <span>Professional profile</span>
-        </a>
+          <p><strong>Email:</strong> <a href="mailto:amal.alshehri@durham.ac.uk">amal.alshehri@durham.ac.uk</a></p>
+          <p><strong>Durham:</strong> <a href="https://www.durham.ac.uk/staff/amal-alshehri/" target="_blank" rel="noopener noreferrer">University profile</a></p>
+          <p><strong>ORCID:</strong> <a href="https://orcid.org/0000-0001-6903-6720" target="_blank" rel="me noopener noreferrer">0000-0001-6903-6720</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/amalsaad100/" target="_blank" rel="me noopener noreferrer">amalsaad100</a></p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap">© 2026 Amal Alshehri</div>
+  <footer class="wrap">
+    © 2026 Amal Saad Alshehri
   </footer>
 </body>
 </html>
