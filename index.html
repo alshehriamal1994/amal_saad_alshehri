@@ -37,13 +37,9 @@
       --radius: 18px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -61,9 +57,7 @@
       text-underline-offset: 3px;
     }
 
-    a:hover {
-      color: var(--ink);
-    }
+    a:hover { color: var(--ink); }
 
     .wrap {
       width: min(calc(100% - 36px), var(--max));
@@ -107,13 +101,9 @@
       text-decoration: none;
     }
 
-    nav a:hover {
-      color: var(--ink);
-    }
+    nav a:hover { color: var(--ink); }
 
-    main {
-      padding: 54px 0 72px;
-    }
+    main { padding: 54px 0 72px; }
 
     .intro {
       display: grid;
@@ -164,7 +154,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 26px;
+      margin-top: 18px;
       font-size: 0.98rem;
     }
 
@@ -221,10 +211,7 @@
       color: var(--muted);
     }
 
-    .content {
-      display: grid;
-      gap: 24px;
-    }
+    .content { display: grid; gap: 24px; }
 
     .plain-list {
       margin: 0;
@@ -232,9 +219,7 @@
       color: var(--muted);
     }
 
-    .plain-list li {
-      margin-bottom: 8px;
-    }
+    .plain-list li { margin-bottom: 8px; }
 
     .item {
       padding-bottom: 22px;
@@ -281,26 +266,13 @@
       font-weight: 700;
     }
 
-    .results-table tr:last-child td {
-      border-bottom: 0;
-    }
+    .results-table tr:last-child td { border-bottom: 0; }
 
-    .results-table td {
-      color: var(--muted);
-    }
+    .results-table td { color: var(--muted); }
 
     .highlight {
       color: var(--ink);
       font-weight: 700;
-    }
-
-    .small-note {
-      background: var(--accent-soft);
-      border: 1px solid rgba(122, 63, 50, 0.18);
-      color: #5d3b32;
-      padding: 14px 16px;
-      border-radius: 14px;
-      font-size: 0.94rem;
     }
 
     .contact-box {
@@ -310,6 +282,43 @@
       padding: 22px;
       display: grid;
       gap: 12px;
+    }
+
+    .service-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 185px;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .certificate-preview {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 6px;
+      text-decoration: none;
+    }
+
+    .certificate-preview img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .certificate-preview span {
+      display: block;
+      margin-top: 7px;
+      color: var(--soft);
+      font-size: 0.82rem;
+      text-align: center;
     }
 
     footer {
@@ -325,22 +334,19 @@
         padding: 16px 0;
       }
 
-      nav {
-        justify-content: flex-start;
-      }
+      nav { justify-content: flex-start; }
 
       .intro,
-      .section-grid {
+      .section-grid,
+      .service-grid {
         grid-template-columns: 1fr;
       }
 
-      .photo-card {
-        max-width: 360px;
-      }
+      .photo-card { max-width: 360px; }
 
-      main {
-        padding-top: 36px;
-      }
+      .certificate-preview { max-width: 260px; }
+
+      main { padding-top: 36px; }
 
       .results-table {
         display: block;
@@ -361,6 +367,7 @@
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
         <a href="#coliee">COLIEE 2026</a>
+        <a href="#service">Service</a>
         <a href="#presentations">Presentations</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -494,7 +501,7 @@
               <tr>
                 <th>Task</th>
                 <th>Result</th>
-                <th>How it should be described</th>
+                <th>Description</th>
               </tr>
             </thead>
 
@@ -502,19 +509,19 @@
               <tr>
                 <td><span class="highlight">Task 1</span></td>
                 <td>F1 = 0.314; rank 11/54 submissions</td>
-                <td>Official result for legal case retrieval.</td>
+                <td>Legal case retrieval.</td>
               </tr>
 
               <tr>
                 <td><span class="highlight">Task 2</span></td>
                 <td>Official F1 = 0.343; post-competition F1 = 0.555</td>
-                <td>The improved F1 should be described as post-competition analysis, not an official submission.</td>
+                <td>Legal case entailment.</td>
               </tr>
 
               <tr>
                 <td><span class="highlight">Task 3</span></td>
                 <td>Official accuracy = 79.3%; post-competition accuracy = 91.5%</td>
-                <td>The 91.5% result should be described as post-competition analysis.</td>
+                <td>Statute retrieval and entailment.</td>
               </tr>
 
               <tr>
@@ -526,20 +533,46 @@
               <tr>
                 <td><span class="highlight">Pilot Task</span></td>
                 <td>TP accuracy = 73.1%; RE F1 = 68.2%</td>
-                <td>Unofficial submission; should not be described as an official leaderboard win.</td>
+                <td>Unofficial submission for Japanese tort judgment prediction.</td>
               </tr>
             </tbody>
           </table>
-
-          <p class="small-note">
-            I separate official results, unofficial results, and post-competition analysis to keep the website
-            accurate, professional, and credible.
-          </p>
 
           <div class="profile-links">
             <a href="https://coliee.org/COLIEE2026/results" target="_blank" rel="noopener noreferrer">COLIEE results overview</a>
             <a href="https://coliee.org/COLIEE2026/results/task4" target="_blank" rel="noopener noreferrer">Task 4 results</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service" aria-label="Academic service">
+      <div class="section-grid">
+        <h2>Academic service</h2>
+
+        <div class="content">
+          <article class="service-card">
+            <div class="service-grid">
+              <div>
+                <h3>
+                  Reviewer, <a href="https://www.sciencedirect.com/journal/expert-systems-with-applications" target="_blank" rel="noopener noreferrer">Expert Systems with Applications</a>
+                </h3>
+                <div class="meta">Elsevier · October 2025</div>
+                <p class="note">
+                  Completed one peer review for <em>Expert Systems with Applications</em>, an Elsevier journal
+                  focused on expert and intelligent systems applied in industry, government, and universities worldwide.
+                </p>
+                <div class="profile-links">
+                  <a href="REVIEWER-SERTFICATE.jpeg" target="_blank" rel="noopener noreferrer">View certificate</a>
+                </div>
+              </div>
+
+              <a class="certificate-preview" href="REVIEWER-SERTFICATE.jpeg" target="_blank" rel="noopener noreferrer" aria-label="Open reviewer certificate">
+                <img src="REVIEWER-SERTFICATE.jpeg" alt="Certificate of reviewing for Expert Systems with Applications" />
+                <span>Reviewing certificate</span>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
