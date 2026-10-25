@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Amal Saad Alshehri</title>
+  <meta name="description" content="Amal Saad Alshehri — PhD candidate in Artificial Intelligence at Durham University, working on Legal AI, NLP, legal information retrieval, reranking, and legal reasoning." />
+  <meta property="og:title" content="Amal Saad Alshehri" />
+  <meta property="og:description" content="PhD candidate in Artificial Intelligence at Durham University working on Legal AI and NLP." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#090a0f" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23090a0f'/%3E%3Ctext x='50%25' y='58%25' dominant-baseline='middle' text-anchor='middle' font-size='44' fill='%23ff8b5e' font-family='monospace'%3EA%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    html,body{ margin:0; padding:0; }
+    body{ background:#090a0f; color:#eceef4; font-family:'IBM Plex Sans',sans-serif; overflow-x:hidden; }
+    a{ text-decoration:none; color:inherit; }
+    ::selection{ background:rgba(255,139,94,0.32); }
+    em{ color:#cdd3df; font-style:italic; }
+
+    @keyframes floaty{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(7px);} }
+
+    .mono{ font-family:'IBM Plex Mono',monospace; }
+    .display{ font-family:'Space Grotesk',sans-serif; }
+
+    /* cursor glow */
+    #glow{ position:fixed; left:-300px; top:-300px; width:520px; height:520px; border-radius:50%;
+      transform:translate(-50%,-50%); pointer-events:none; z-index:1; mix-blend-mode:screen;
+      background:radial-gradient(circle,rgba(255,139,94,0.10),rgba(92,200,224,0.06) 40%,transparent 70%); }
+
+    /* scroll progress */
+    #progress{ position:fixed; top:0; left:0; right:0; height:3px; z-index:300; }
+    #bar{ height:100%; width:0%; background:linear-gradient(90deg,#ff8b5e,#5cc8e0); }
+
+    /* nav */
+    nav.top{ position:fixed; top:3px; left:0; right:0; z-index:250; display:flex; align-items:center;
+      justify-content:space-between; gap:16px; padding:12px clamp(16px,5vw,40px);
+      background:rgba(9,10,15,0.6); backdrop-filter:blur(14px); border-bottom:1px solid rgba(255,255,255,0.07); }
+    .brand{ display:flex; align-items:center; gap:11px; }
+    .brand img{ width:38px; height:38px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,0.18); }
+    .brand span{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; letter-spacing:-0.01em; }
+    .navlinks{ display:flex; align-items:center; gap:clamp(10px,2vw,26px); }
+    .navlinks a{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:#9aa2b2; }
+    .navlinks a:hover{ color:#eceef4; }
+    @media (max-width:520px){ .navlinks a.nav-wide{ display:none; } }
+    .pill-cta{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:#090a0f;
+      background:linear-gradient(90deg,#ff8b5e,#ffb27e); padding:8px 16px; border-radius:999px; font-weight:500;
+      display:inline-block; transition:transform .25s cubic-bezier(.2,.7,.2,1); }
+
+    /* hero */
+    .hero{ position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden; scroll-margin-top:80px; }
+    #field{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+    .hero-veil{ position:absolute; inset:0; z-index:1; pointer-events:none;
+      background:radial-gradient(120% 90% at 50% 0%,transparent 40%,rgba(9,10,15,0.55) 100%); }
+    .hero-inner{ position:relative; z-index:2; max-width:1100px; margin:0 auto;
+      padding:120px clamp(18px,5vw,40px) 80px; width:100%; }
+    .eyebrow{ display:inline-flex; align-items:center; gap:10px; font-family:'IBM Plex Mono',monospace;
+      font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#cdd3df;
+      border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.03);
+      padding:7px 14px; border-radius:999px; margin-bottom:clamp(22px,4vw,34px); }
+    .dot{ width:7px; height:7px; border-radius:50%; background:#5cc8e0; box-shadow:0 0 10px #5cc8e0; display:inline-block; }
+    h1{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(44px,9vw,104px);
+      line-height:0.95; letter-spacing:-0.035em; margin:0;
+      background:linear-gradient(180deg,#ffffff,#b9c0cf); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .lede{ max-width:60ch; font-size:clamp(16px,2.1vw,21px); line-height:1.6; color:#b6bdca; margin:clamp(22px,4vw,32px) 0 0; }
+    .lede b{ color:#eceef4; font-weight:600; }
+    .cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(28px,5vw,40px); }
+    .btn-solid{ font-family:'IBM Plex Mono',monospace; font-size:14px; color:#090a0f;
+      background:linear-gradient(90deg,#ff8b5e,#5cc8e0); padding:13px 24px; border-radius:999px; font-weight:500;
+      display:inline-block; transition:transform .25s cubic-bezier(.2,.7,.2,1); }
+    .btn-ghost{ font-family:'IBM Plex Mono',monospace; font-size:14px; color:#eceef4;
+      border:1px solid rgba(255,255,255,0.18); padding:13px 24px; border-radius:999px;
+      display:inline-block; transition:transform .25s cubic-bezier(.2,.7,.2,1); }
+    .scroll-cue{ position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:2;
+      font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
+      color:#6b7280; display:flex; flex-direction:column; align-items:center; gap:8px; animation:floaty 2.4s ease-in-out infinite; }
+
+    section.block{ position:relative; z-index:2; background:#090a0f;
+      padding:clamp(40px,8vw,90px) clamp(18px,5vw,40px); scroll-margin-top:80px; }
+    .inner{ max-width:1100px; margin:0 auto; }
+    h2{ font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(26px,4.4vw,44px); letter-spacing:-0.02em; margin:0; }
+    h3{ font-family:'Space Grotesk',sans-serif; font-weight:600; margin:0; }
+    .label{ font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#5cc8e0; }
+    .heading-row{ display:flex; align-items:baseline; gap:14px; margin-bottom:clamp(28px,5vw,44px); }
+    .heading-row .num{ font-family:'IBM Plex Mono',monospace; font-size:14px; color:#5cc8e0; }
+    .intro-p{ color:#b6bdca; font-size:clamp(15px,1.9vw,18px); line-height:1.65; max-width:72ch; margin:0 0 clamp(24px,4vw,36px); }
+
+    .card{ border:1px solid rgba(255,255,255,0.1); border-radius:18px; background:rgba(255,255,255,0.02);
+      padding:clamp(24px,4vw,38px); transition:transform .2s cubic-bezier(.2,.7,.2,1); transform-style:preserve-3d; }
+    .card.sm{ border-radius:16px; padding:clamp(22px,3vw,28px); }
+    .tag{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:#090a0f; padding:4px 10px; border-radius:999px; font-weight:500; }
+    .tag.cyan{ background:#5cc8e0; }
+    .tag.amber{ background:#ff8b5e; }
+    .meta{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:#9aa2b2; }
+    .pub-title{ display:block; font-family:'Space Grotesk',sans-serif; font-weight:600;
+      font-size:clamp(19px,2.6vw,27px); line-height:1.25; letter-spacing:-0.01em; color:#eceef4; }
+    .pub-desc{ color:#b6bdca; font-size:clamp(14px,1.7vw,16px); line-height:1.6; max-width:70ch; }
+    .linkrow{ display:flex; gap:10px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:13px; }
+    .chip-solid{ color:#090a0f; padding:7px 14px; border-radius:999px; font-weight:500; display:inline-block;
+      transition:transform .25s cubic-bezier(.2,.7,.2,1); }
+    .chip-ghost{ color:#eceef4; border:1px solid rgba(255,255,255,0.2); padding:7px 14px; border-radius:999px;
+      display:inline-block; transition:transform .25s cubic-bezier(.2,.7,.2,1); }
+
+    .news{ border:1px solid rgba(255,255,255,0.1); border-radius:16px; overflow:hidden; }
+    .news-item{ display:grid; grid-template-columns:86px 1fr auto; gap:16px; align-items:baseline;
+      padding:18px clamp(16px,3vw,26px); border-bottom:1px solid rgba(255,255,255,0.06); transition:background .2s; }
+    .news-item:last-child{ border-bottom:none; }
+    .news-item:hover{ background:rgba(255,255,255,0.03); }
+    .news-date{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:#5cc8e0; }
+    .news-body{ font-size:clamp(15px,1.8vw,17px); line-height:1.55; color:#b6bdca; }
+    .news-body b{ color:#eceef4; font-weight:600; }
+    .news-body .tag{ margin-right:10px; position:relative; top:-1px; }
+    .news-go{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:#ff8b5e; white-space:nowrap; }
+    @media (max-width:560px){ .news-item{ grid-template-columns:1fr; gap:6px; } .news-go{ display:none; } }
+    .grid-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)); gap:14px; }
+    .ri-num{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:26px;
+      background:linear-gradient(120deg,#ff8b5e,#5cc8e0); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:12px; }
+
+    .row{ display:grid; grid-template-columns:78px 1fr auto; gap:14px; align-items:center;
+      padding:16px clamp(16px,3vw,24px); border-bottom:1px solid rgba(255,255,255,0.06); }
+    .row .t{ font-family:'IBM Plex Mono',monospace; font-size:13px; color:#5cc8e0; font-weight:500; }
+    .row .d{ font-size:clamp(14px,1.7vw,16px); color:#c2c8d4; line-height:1.4; }
+    .row .r{ font-family:'IBM Plex Mono',monospace; font-size:clamp(13px,1.6vw,15px); font-weight:500; text-align:right; }
+
+    .cert-frame{ display:block; margin-top:16px; border:1px solid rgba(255,255,255,0.12); border-radius:12px; overflow:hidden; background:#fff; }
+    .cert-frame img{ display:block; width:100%; height:auto; }
+
+    footer{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5b6270; }
+
+    [data-reveal]{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+    [data-reveal].in{ opacity:1; transform:none; }
+  </style>
+</head>
+
+<body id="top">
+  <div id="glow"></div>
+  <div id="progress"><div id="bar"></div></div>
+
+  <nav class="top">
+    <a class="brand" href="#top">
+      <img src="ME.jpeg" alt="Amal Saad Alshehri" />
+      <span>Amal Saad Alshehri</span>
+    </a>
+    <div class="navlinks">
+      <a href="#coliee">COLIEE</a>
+      <a class="nav-wide" href="#news">News</a>
+      <a href="#research">Research</a>
+      <a class="pill-cta" data-magnetic href="mailto:amal.alshehri@durham.ac.uk">Get in touch</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="field"></canvas>
+    <div class="hero-veil"></div>
+    <div class="hero-inner">
+      <div class="eyebrow"><span class="dot"></span> PhD candidate · Artificial Intelligence</div>
+      <h1>Amal Saad<br/>Alshehri</h1>
+      <p class="lede">I build and evaluate AI systems for legal text at <b>Durham University</b> — retrieval and reranking for statutes and case law, retrieval-augmented prompting, and rigorous evaluation of large language models for legal reasoning.</p>
+      <div class="cta-row">
+        <a class="btn-solid" data-magnetic href="#publications">View research →</a>
+        <a class="btn-ghost" data-magnetic href="https://github.com/alshehriamal1994" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn-ghost" data-magnetic href="https://orcid.org/0000-0001-6903-6720" target="_blank" rel="noopener">ORCID</a>
+        <a class="btn-ghost" data-magnetic href="https://www.linkedin.com/in/amalsaad100/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn-ghost" data-magnetic href="https://www.durham.ac.uk/staff/amal-alshehri/" target="_blank" rel="noopener">Durham profile</a>
+      </div>
+    </div>
+    <div class="scroll-cue">scroll<span style="font-size:14px;">↓</span></div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section class="block" id="news">
+    <div class="inner">
+      <div class="heading-row" data-reveal>
+        <h2>Latest news</h2>
+      </div>
+      <div class="news" data-reveal>
+        <a class="news-item" href="#pub-daleel">
+          <span class="news-date">Oct 2026</span>
+          <span class="news-body"><span class="tag amber">First prize</span><b>Ranked first of ten teams at Daleel 2026,</b> the first shared task on Arabic argument mining, at ArabicNLP in Budapest.</span>
+          <span class="news-go">Paper ↓</span>
+        </a>
+        <a class="news-item" href="#pub-aisa">
+          <span class="news-date">Oct 2026</span>
+          <span class="news-body"><span class="tag cyan">Finding</span><b>Found the shortcut in the AISA-ArabicFC benchmark.</b> The correct tool was always listed first, and shuffling the options cut accuracy by 20 points.</span>
+          <span class="news-go">Paper ↓</span>
+        </a>
+        <a class="news-item" href="#service">
+          <span class="news-date">Sep 2026</span>
+          <span class="news-body">Reviewed for the <em>Journal of Computational Law and Legal Technology</em>.</span>
+          <span class="news-go">More ↓</span>
+        </a>
+        <a class="news-item" href="#service">
+          <span class="news-date">Apr 2026</span>
+          <span class="news-body">Presented work on span-level legal retrieval at UKAIS 2026, University of Sheffield.</span>
+          <span class="news-go">Slides ↓</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLIEE HIGHLIGHT -->
+  <section class="block" id="coliee" style="padding-top:clamp(20px,4vw,40px);">
+    <div class="inner">
+      <div class="label" data-reveal style="margin-bottom:clamp(28px,5vw,44px);">Highlight · COLIEE 2026</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:clamp(26px,5vw,60px);align-items:center;">
+        <div class="card" data-tilt style="background:linear-gradient(160deg,rgba(255,139,94,0.10),rgba(92,200,224,0.06));">
+          <div class="display" style="font-weight:700;font-size:clamp(90px,20vw,180px);line-height:0.8;background:linear-gradient(120deg,#ff8b5e,#5cc8e0);-webkit-background-clip:text;background-clip:text;color:transparent;">#1</div>
+          <div class="mono" style="font-size:13px;color:#b6bdca;margin-top:18px;letter-spacing:0.05em;">official first place · 33 submissions</div>
+        </div>
+        <div data-reveal>
+          <h2>First place in statute&nbsp;entailment</h2>
+          <p style="font-size:clamp(15px,1.9vw,18px);line-height:1.65;color:#b6bdca;margin:18px 0 26px;max-width:48ch;">Team DU participated in all five COLIEE 2026 tasks. Task 4 was our strongest official result, ranking first overall in statute entailment.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:stretch;">
+            <div style="border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;background:rgba(255,255,255,0.02);">
+              <div class="display" style="font-weight:700;font-size:clamp(30px,5vw,42px);line-height:1;color:#eceef4;"><span id="stat">0.0</span><span style="color:#5cc8e0;">%</span></div>
+              <div class="mono" style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8b93a3;margin-top:8px;">Task 4 accuracy</div>
+            </div>
+            <a class="chip-ghost" data-magnetic href="https://coliee.org/COLIEE2026/results/task4" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:0 22px;border-radius:14px;">Official results →</a>
+          </div>
+        </div>
+      </div>
+      <div data-reveal style="margin-top:clamp(30px,5vw,52px);text-align:center;">
+        <div class="label" style="margin-bottom:16px;">Official certificate</div>
+        <a class="cert-frame" href="coliee-2026-certificate.jpg" target="_blank" rel="noopener" style="max-width:440px;margin:0 auto;">
+          <img src="coliee-2026-certificate.jpg" alt="COLIEE 2026 certificate awarded to Durham University for the highest performance on Task 4 (statute entailment)" loading="lazy" />
+        </a>
+        <div style="margin-top:14px;">
+          <a href="coliee-2026-certificate.jpg" target="_blank" rel="noopener" class="mono" style="font-size:13px;color:#ff8b5e;">View full certificate →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="block" id="publications" style="padding-top:clamp(20px,4vw,40px);">
+    <div class="inner">
+      <div class="heading-row" data-reveal>
+        <h2>Publications</h2><span class="num">02</span>
+      </div>
+      <div style="display:grid;gap:18px;">
+        <div class="card" data-tilt data-reveal>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px;">
+            <span class="tag cyan">Journal</span>
+            <span class="meta">Artificial Intelligence and Law · 2026</span>
+          </div>
+          <a class="pub-title" href="https://link.springer.com/article/10.1007/s10506-025-09501-6" target="_blank" rel="noopener">Neural reranking for UK statutory retrieval: provision-level evaluation and an open distilled model</a>
+          <p class="pub-desc" style="margin:14px 0 18px;">Introduces UK-STATUTECORPUS and Distilled-Voyage-ModernBERT for provision-level statutory retrieval.</p>
+          <div class="linkrow">
+            <a class="chip-solid" data-magnetic href="https://link.springer.com/article/10.1007/s10506-025-09501-6" target="_blank" rel="noopener" style="background:#ff8b5e;">Read paper →</a>
+            <a class="chip-ghost" data-magnetic href="https://github.com/alshehriamal1994/uk-statute-retrieval" target="_blank" rel="noopener">Code &amp; data →</a>
+          </div>
+        </div>
+        <div class="card" data-tilt data-reveal>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px;">
+            <span class="tag amber">Workshop</span>
+            <span class="meta">COLIEE 2026 · arXiv</span>
+          </div>
+          <a class="pub-title" href="https://arxiv.org/abs/2607.11400" target="_blank" rel="noopener">Cross-architecture LLM ensembles, feature-based reranking and retrieval-augmented prompting for legal information processing</a>
+          <p class="pub-desc" style="margin:14px 0 18px;">A unified empirical study of Team DU systems across legal case retrieval, case entailment, statute retrieval and entailment, and legal judgment prediction.</p>
+          <div class="linkrow">
+            <a class="chip-solid" data-magnetic href="https://arxiv.org/abs/2607.11400" target="_blank" rel="noopener" style="background:#ff8b5e;">Read paper →</a>
+            <a class="chip-ghost" data-magnetic href="https://arxiv.org/pdf/2607.11400" target="_blank" rel="noopener">PDF →</a>
+          </div>
+        </div>
+        <div class="card" id="pub-daleel" data-tilt data-reveal style="scroll-margin-top:90px;">
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px;">
+            <span class="tag amber">Shared task</span>
+            <span class="tag" style="background:linear-gradient(90deg,#ff8b5e,#ffb27e);">First prize · #1 of 10</span>
+            <span class="meta">ArabicNLP 2026 · ACL Anthology</span>
+          </div>
+          <a class="pub-title" href="https://aclanthology.org/2026.arabicnlp-sharedtasks.166/" target="_blank" rel="noopener">Durham-Jazan at Daleel 2026: Domain-routed ensembles, LLM augmentation, and the limits of decision-rule tuning for Arabic argument mining</a>
+          <p class="pub-desc" style="margin:14px 0 18px;">Ranked first of ten teams and awarded first prize. The paper also shows that re-tuning decision thresholds on validation data makes held-out results worse.</p>
+          <div class="linkrow">
+            <a class="chip-solid" data-magnetic href="https://aclanthology.org/2026.arabicnlp-sharedtasks.166/" target="_blank" rel="noopener" style="background:#ff8b5e;">Read paper →</a>
+            <a class="chip-ghost" data-magnetic href="https://aclanthology.org/2026.arabicnlp-sharedtasks.166.pdf" target="_blank" rel="noopener">PDF →</a>
+            <a class="chip-ghost" data-magnetic href="https://github.com/alshehriamal1994/daleel2026-durham-jazan" target="_blank" rel="noopener">Code &amp; data →</a>
+            <a class="chip-ghost" data-magnetic href="https://aclanthology.org/2026.arabicnlp-sharedtasks.161/" target="_blank" rel="noopener">Task overview →</a>
+          </div>
+        </div>
+        <div class="card" id="pub-aisa" data-tilt data-reveal style="scroll-margin-top:90px;">
+          <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:14px;">
+            <span class="tag amber">Shared task</span>
+            <span class="tag cyan">Benchmark finding</span>
+            <span class="meta">ArabicNLP 2026 · ACL Anthology</span>
+          </div>
+          <a class="pub-title" href="https://aclanthology.org/2026.arabicnlp-sharedtasks.200/" target="_blank" rel="noopener">Durham-Jazan at AISA-ArabicFC: A field-wise QLoRA ensemble and the sensitivity of exact-match scoring</a>
+          <p class="pub-desc" style="margin:14px 0 18px;">Shows that the correct tool was always listed first, so a model could score well by position alone. Shuffling the options cut accuracy by 20 points, and the organisers’ overview reports the same shortcut.</p>
+          <div class="linkrow">
+            <a class="chip-solid" data-magnetic href="https://aclanthology.org/2026.arabicnlp-sharedtasks.200/" target="_blank" rel="noopener" style="background:#ff8b5e;">Read paper →</a>
+            <a class="chip-ghost" data-magnetic href="https://aclanthology.org/2026.arabicnlp-sharedtasks.200.pdf" target="_blank" rel="noopener">PDF →</a>
+            <a class="chip-ghost" data-magnetic href="https://aclanthology.org/2026.arabicnlp-sharedtasks.198/" target="_blank" rel="noopener">Task overview →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="block" id="research" style="padding-top:clamp(20px,4vw,40px);">
+    <div class="inner">
+      <div class="heading-row" data-reveal><h2>Research interests</h2></div>
+      <p class="intro-p" data-reveal>My work sits at the intersection of artificial intelligence, natural language processing, and legal information systems. I study how models retrieve legal materials, rank evidence, and make entailment decisions under the constraints of legal language.</p>
+      <div class="grid-cards" id="interests"></div>
+
+      <!-- all coliee tasks -->
+      <div data-reveal style="margin-top:clamp(44px,7vw,72px);">
+        <h3 style="font-size:clamp(20px,3vw,28px);letter-spacing:-0.01em;margin-bottom:6px;">COLIEE 2026 — all five tasks</h3>
+        <p class="mono" style="color:#8b93a3;font-size:14px;margin:0 0 22px;">Team DU · official &amp; post-competition results</p>
+        <div style="border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;" id="coliee-table"></div>
+        <div class="linkrow" style="margin-top:18px;">
+          <a class="chip-ghost" data-magnetic href="https://coliee.org/COLIEE2026/results" target="_blank" rel="noopener">Results overview →</a>
+          <a class="chip-solid" data-magnetic href="https://coliee.org/COLIEE2026/results/task4" target="_blank" rel="noopener" style="background:#5cc8e0;">Task 4 results →</a>
+        </div>
+      </div>
+
+      <!-- service + presentation -->
+      <div id="service" style="scroll-margin-top:90px;margin-top:clamp(28px,5vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px;">
+        <div class="card sm" data-tilt data-reveal>
+          <div class="label" style="margin-bottom:10px;">Academic service</div>
+          <h3 style="font-size:18px;">Reviewer · Expert Systems with Applications</h3>
+          <div style="color:#8b93a3;font-size:14px;margin-top:6px;">Elsevier · October 2025</div>
+          <p style="color:#b6bdca;font-size:14px;line-height:1.55;margin:12px 0 0;">Completed one peer review for <em>Expert Systems with Applications</em>, an Elsevier journal on expert and intelligent systems applied worldwide.</p>
+          <a class="cert-frame" href="REVIEWER-SERTFICATE.jpeg" target="_blank" rel="noopener">
+            <img src="REVIEWER-SERTFICATE.jpeg" alt="Certificate of reviewing for Expert Systems with Applications" loading="lazy" />
+          </a>
+          <a href="REVIEWER-SERTFICATE.jpeg" target="_blank" rel="noopener" class="mono" style="display:inline-block;margin-top:12px;font-size:13px;color:#ff8b5e;">View certificate →</a>
+        </div>
+        <div class="card sm" data-tilt data-reveal>
+          <div class="label" style="margin-bottom:10px;">Academic service</div>
+          <h3 style="font-size:18px;">Reviewer · Journal of Computational Law and Legal Technology</h3>
+          <div style="color:#8b93a3;font-size:14px;margin-top:6px;">Bon View Publishing · September 2026</div>
+          <p style="color:#b6bdca;font-size:14px;line-height:1.55;margin:12px 0 0;">Completed a peer review for the <em>Journal of Computational Law and Legal Technology</em>, a journal on computational methods and AI for law, acknowledged by the Editor-in-Chief.</p>
+          <a class="cert-frame" href="jclt-reviewer-acknowledgement-2026.jpg" target="_blank" rel="noopener">
+            <img src="jclt-reviewer-acknowledgement-2026.jpg" alt="Reviewer acknowledgement from the Journal of Computational Law and Legal Technology" loading="lazy" />
+          </a>
+          <a href="jclt-reviewer-acknowledgement-2026.jpg" target="_blank" rel="noopener" class="mono" style="display:inline-block;margin-top:12px;font-size:13px;color:#ff8b5e;">View acknowledgement →</a>
+        </div>
+        <div class="card sm" data-tilt data-reveal>
+          <div class="label" style="margin-bottom:10px;">Presentation</div>
+          <h3 style="font-size:18px;">UKAIS 2026 · University of Sheffield</h3>
+          <div style="color:#8b93a3;font-size:14px;margin-top:6px;">April 2026</div>
+          <p style="color:#b6bdca;font-size:14px;line-height:1.55;margin:12px 0 0;">Presented “Enhancing Trust in Legal AI: Optimising Span-Level Retrieval Architectures on LegalBench-RAG.”</p>
+          <div class="linkrow" style="margin-top:16px;">
+            <a class="chip-solid" data-magnetic href="ukais-sheffield-2026.pdf" target="_blank" rel="noopener" style="background:#ff8b5e;">View slides →</a>
+            <a class="chip-ghost" data-magnetic href="ukais-sheffield-2026.pdf" download>Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="block" id="contact" style="padding-top:clamp(50px,9vw,110px);padding-bottom:clamp(40px,6vw,70px);border-top:1px solid rgba(255,255,255,0.06);">
+    <div class="inner" style="text-align:center;">
+      <img data-reveal src="ME.jpeg" alt="Amal Saad Alshehri" style="width:84px;height:84px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,0.18);margin-bottom:24px;" />
+      <h2 data-reveal style="font-size:clamp(28px,5vw,52px);margin-bottom:18px;">Let's talk Legal AI.</h2>
+      <p data-reveal style="color:#b6bdca;font-size:clamp(15px,1.9vw,18px);line-height:1.6;max-width:52ch;margin:0 auto 30px;">Happy to connect with researchers and collaborators interested in Legal AI, NLP, information retrieval, reranking, and trustworthy AI systems for legal text.</p>
+      <div class="linkrow" data-reveal style="justify-content:center;font-size:14px;">
+        <a class="chip-solid" data-magnetic href="mailto:amal.alshehri@durham.ac.uk" style="background:linear-gradient(90deg,#ff8b5e,#5cc8e0);padding:13px 26px;">amal.alshehri@durham.ac.uk</a>
+        <a class="chip-ghost" data-magnetic href="https://www.durham.ac.uk/staff/amal-alshehri/" target="_blank" rel="noopener" style="padding:13px 26px;">Durham profile</a>
+      </div>
+      <footer style="margin-top:clamp(44px,7vw,70px);">© 2026 Amal Saad Alshehri · Durham University · ORCID 0000-0001-6903-6720</footer>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      // ---- data ----
+      var interests = [
+        ['01','Legal information retrieval for statutes, case law, and legal paragraphs.'],
+        ['02','Neural and feature-based reranking for long legal documents.'],
+        ['03','Retrieval-augmented prompting and LLM evaluation for legal reasoning.'],
+        ['04','Open-weight models and reproducible, benchmark-based legal NLP systems.'],
+        ['05','Trustworthy Legal AI: grounding, error analysis, and transparent reporting.']
+      ];
+      var coliee = [
+        ['Task 1','Legal case retrieval','F1 0.314 · 11/54','#c2c8d4','transparent'],
+        ['Task 2','Legal case entailment','F1 0.343 → 0.555','#c2c8d4','transparent'],
+        ['Task 3','Statute retrieval & entailment','79.3% → 91.5%','#c2c8d4','transparent'],
+        ['Task 4','Statute entailment — official first place','96.3% · #1 / 33','#5cc8e0','rgba(92,200,224,0.08)'],
+        ['Pilot','Japanese tort judgment prediction','TP 73.1% · RE 68.2%','#c2c8d4','transparent']
+      ];
+      var ri = document.getElementById('interests');
+      interests.forEach(function(it){
+        var d = document.createElement('div');
+        d.className = 'card sm'; d.setAttribute('data-tilt',''); d.setAttribute('data-reveal','');
+        d.innerHTML = '<div class="ri-num">'+it[0]+'</div><div style="font-size:15px;line-height:1.55;color:#c2c8d4;">'+it[1]+'</div>';
+        ri.appendChild(d);
+      });
+      var ct = document.getElementById('coliee-table');
+      coliee.forEach(function(r){
+        var d = document.createElement('div');
+        d.className = 'row'; d.style.background = r[4];
+        d.innerHTML = '<span class="t">'+r[0]+'</span><span class="d">'+r[1]+'</span><span class="r" style="color:'+r[3]+'">'+r[2]+'</span>';
+        ct.appendChild(d);
+      });
+
+      var glow = document.getElementById('glow');
+      var bar = document.getElementById('bar');
+
+      // ---- particle field ----
+      var canvas = document.getElementById('field');
+      var ctx = canvas.getContext('2d');
+      var DPR = Math.min(window.devicePixelRatio||1, 2);
+      var dots = [], rect = {width:0,height:0}, mouse = {x:-9999,y:-9999};
+      function build(){
+        rect = canvas.getBoundingClientRect();
+        canvas.width = Math.max(1, rect.width*DPR); canvas.height = Math.max(1, rect.height*DPR);
+        ctx.setTransform(DPR,0,0,DPR,0,0);
+        dots = []; var gap = rect.width < 600 ? 26 : 32;
+        for(var y=gap/2; y<rect.height; y+=gap) for(var x=gap/2; x<rect.width; x+=gap) dots.push({x:x,y:y});
+      }
+      build();
+      window.addEventListener('resize', build);
+      var R = 170;
+      function draw(){
+        ctx.clearRect(0,0,rect.width,rect.height);
+        for(var i=0;i<dots.length;i++){
+          var d = dots[i]; var dx = d.x-mouse.x, dy = d.y-mouse.y;
+          var dist = Math.sqrt(dx*dx+dy*dy); var t = Math.max(0, 1-dist/R);
+          var size = 0.9 + t*t*3.2;
+          if(t>0.001){
+            var mix = d.x/(rect.width||1);
+            var r = Math.round(255*(1-mix)+92*mix), g = Math.round(139*(1-mix)+200*mix), b = Math.round(94*(1-mix)+224*mix);
+            ctx.fillStyle = 'rgba('+r+','+g+','+b+','+(0.12+t*0.85)+')';
+          } else { ctx.fillStyle = 'rgba(255,255,255,0.05)'; }
+          ctx.beginPath(); ctx.arc(d.x,d.y,size,0,6.283); ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+      window.addEventListener('mousemove', function(e){
+        var rr = canvas.getBoundingClientRect();
+        mouse.x = e.clientX-rr.left; mouse.y = e.clientY-rr.top;
+        glow.style.left = e.clientX+'px'; glow.style.top = e.clientY+'px';
+      });
+
+      // ---- scroll progress ----
+      function onScroll(){
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (h>0 ? (window.scrollY/h)*100 : 0)+'%';
+      }
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+      // ---- magnetic ----
+      document.querySelectorAll('[data-magnetic]').forEach(function(el){
+        el.addEventListener('mousemove', function(e){
+          var r = el.getBoundingClientRect();
+          var mx = e.clientX-(r.left+r.width/2), my = e.clientY-(r.top+r.height/2);
+          el.style.transform = 'translate('+(mx*0.3)+'px,'+(my*0.4)+'px)';
+        });
+        el.addEventListener('mouseleave', function(){ el.style.transform = 'translate(0,0)'; });
+      });
+
+      // ---- tilt ----
+      document.querySelectorAll('[data-tilt]').forEach(function(el){
+        el.addEventListener('mousemove', function(e){
+          var r = el.getBoundingClientRect();
+          var px = (e.clientX-r.left)/r.width-0.5, py = (e.clientY-r.top)/r.height-0.5;
+          el.style.transform = 'perspective(1000px) rotateX('+(-py*5)+'deg) rotateY('+(px*5)+'deg) translateY(-5px)';
+        });
+        el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+      });
+
+      // ---- reveals ----
+      var reveals = document.querySelectorAll('[data-reveal]');
+      reveals.forEach(function(el,i){ el.style.transitionDelay = (Math.min(i,6)*0.06)+'s'; });
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, {threshold:0.1, rootMargin:'0px 0px -8% 0px'});
+      reveals.forEach(function(el){ io.observe(el); });
+      setTimeout(function(){ reveals.forEach(function(el){ el.classList.add('in'); }); }, 1600);
+
+      // ---- count up ----
+      var stat = document.getElementById('stat');
+      var io2 = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){
+            var target = 96.3, dur = 1500, start = performance.now();
+            function step(now){
+              var p = Math.min(1,(now-start)/dur); var e = 1-Math.pow(1-p,3);
+              stat.textContent = (target*e).toFixed(1);
+              if(p<1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step); io2.unobserve(en.target);
+          }
+        });
+      }, {threshold:0.6});
+      io2.observe(stat);
+    })();
+  </script>
+</body>
+</html>
